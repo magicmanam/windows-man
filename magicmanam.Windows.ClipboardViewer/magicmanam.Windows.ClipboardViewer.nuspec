@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>magicmanam.Windows.ClipboardViewer</id>
+    <version>1.0.1</version>
+    <authors>magicmanam</authors>
+    <owners>magicmanam</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Simple wrapper over Windows ClipboardViewer</description>
+    <releaseNotes>Adds dependency on magicmanam.Windows package.</releaseNotes>
+    <copyright>Copyright 2018</copyright>
+    <tags>Windows ClipboardViewer</tags>
+  </metadata>
+</package>
