@@ -13,6 +13,12 @@ namespace magicmanam.Windows.ClipboardViewer
             this._nextViewer = WindowsFunctions.SetClipboardViewer(this._handle);
         }
 
+        /// <summary>
+        /// Handles WM_DRAWCLIPBOARD, 
+        /// </summary>
+        /// <param name="msg"></param>
+        /// <param name="wParam"></param>
+        /// <param name="lParam"></param>
         public void HandleWindowsMessage(int msg, IntPtr wParam, IntPtr lParam)
         {
             if (msg == Messages.WM_DRAWCLIPBOARD)
