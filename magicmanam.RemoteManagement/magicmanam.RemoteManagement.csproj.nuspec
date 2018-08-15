@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>magicmanam.RemoteManagement\magicmanam.RemoteManagement.csproj</id>
-    <version>1.0.1</version>
+    <version>1.0.0.2</version>
     <authors>USER</authors>
     <owners>USER</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>

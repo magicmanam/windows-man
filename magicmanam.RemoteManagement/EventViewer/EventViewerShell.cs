@@ -17,7 +17,7 @@ namespace magicmanam.RemoteManagement.EventViewer
             string queryString =
                 "<QueryList>" +
                 $" <Query Id=\"0\" Path=\"{path}\">" +
-                " <Select Path=\"Application\">" +
+                $" <Select Path=\"{path}\">" +
                 $" *[System[TimeCreated[timediff(@SystemTime) &lt;= {minutes * 60}000]]]" +
                 " </Select>" +
                 " </Query>" +

@@ -21,7 +21,7 @@ namespace magicmanam.RemoteManagement
 
         public IEventViewerShell Events { get; private set; }
 
-        public static IRemoteShell Create(PowerShell ps, string computerName)
+        public static IRemoteShell Create(string computerName)
         {
             return new RemoteShell(PowerShell.Create(), computerName);
         }
