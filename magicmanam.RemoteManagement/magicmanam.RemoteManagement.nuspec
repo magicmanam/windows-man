@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>magicmanam.RemoteManagement</id>
+    <version>1.0.0.3</version>
+    <authors>Andrei Muski</authors>
+    <owners>magicmanam</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <licenseUrl>https://opensource.org/licenses/MIT</licenseUrl>
+    <projectUrl>https://github.com/magicmanam/windows-man</projectUrl>
+    <description>Contains some features for remote management of Windows platforms</description>
+    <releaseNotes>Lazy initialization for Services and Event Viewer shells was added</releaseNotes>
+    <copyright>Copyright ©2018 magicmanam</copyright>
+    <tags>Remote-Management Services Windows-Services Event-Viewer Event-Viewer-Events Power-Shell</tags>
+    <dependencies>
+      <!--<dependency id="SampleDependency" version="1.0" />-->
+    </dependencies>
+  </metadata>
+</package>

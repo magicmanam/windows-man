@@ -49,6 +49,7 @@
     <Compile Include="Services\ServicesShell.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="magicmanam.RemoteManagement.nuspec" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
