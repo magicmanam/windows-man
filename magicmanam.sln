@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "magicmanam.Windows.Clipboar
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "magicmanam.RemoteManagement", "magicmanam.RemoteManagement\magicmanam.RemoteManagement.csproj", "{69C72A18-3EE2-4A8A-802B-2E6DB39742F3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "magicmanam.UndoRedo.Tests", "magicmanam.UndoRedo.Tests\magicmanam.UndoRedo.Tests.csproj", "{C0C442B7-BE9E-497C-AFA9-7CC9FE1E3908}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{69C72A18-3EE2-4A8A-802B-2E6DB39742F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{69C72A18-3EE2-4A8A-802B-2E6DB39742F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{69C72A18-3EE2-4A8A-802B-2E6DB39742F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0C442B7-BE9E-497C-AFA9-7CC9FE1E3908}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0C442B7-BE9E-497C-AFA9-7CC9FE1E3908}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0C442B7-BE9E-497C-AFA9-7CC9FE1E3908}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0C442B7-BE9E-497C-AFA9-7CC9FE1E3908}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

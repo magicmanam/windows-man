@@ -1,6 +1,8 @@
-﻿namespace magicmanam.UndoRedo
+﻿using System;
+
+namespace magicmanam.UndoRedo
 {
-    public class UndoableActionEventArgs
+    public class UndoableActionEventArgs : EventArgs
     {
         public UndoableActionEventArgs(string action)
         {

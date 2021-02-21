@@ -14,10 +14,8 @@ namespace magicmanam.UndoRedo
 
         private readonly Stack<T> _states = new Stack<T>();
         private readonly Stack<T> _undoableStates = new Stack<T>();
-        private T _stateOnStartAction;
+        private readonly Stack<UndoableAction<T>> _actionsStack = new Stack<UndoableAction<T>>();
         private IStatefulComponent<T> _stateKeeper;
-        private int _actionCount = 0;
-        private string _actionName;
 
         public UndoableContext(IStatefulComponent<T> stateKeeper)
         {
@@ -26,40 +24,59 @@ namespace magicmanam.UndoRedo
 
         public static IUndoableContext<T> Current { get; set; }
 
-        public UndoableAction<T> StartAction(string action = null) {
-            this._actionName = action;
-
-            if (this._actionCount++ == 0)
-            {
-                this._stateOnStartAction = this._stateKeeper.UndoableState;
-            }
-
-            return new UndoableAction<T>(this);
-        }
-
-        internal void EndAction(bool cancelled)
+        public UndoableAction<T> StartAction(string actionName = "")
         {
-            if (--this._actionCount == 0)
-            {
-                if (!cancelled)
-                {
-                    this._states.Push(this._stateOnStartAction);
-                    this.OnUndoableAction();
-                }
+            var action = new UndoableAction<T>(actionName, this._stateKeeper.UndoableState, this._actionsStack.Any());
+            action.ActionEnd += OnActionEnd;
 
-                this._stateOnStartAction = null;
+            this._actionsStack.Push(action);
+
+            return action;
+        }
+
+        private void OnActionEnd(object sender, UndoableActionEndEventArgs<T> e)
+        {
+            var action = this._actionsStack.Pop();
+
+            if (action.ActionId != e.Action.ActionId)
+            {
+                throw new InvalidOperationException("Nested actions must be disposed in stack order.");
+            }
+
+            if (action.IsCancelled)
+            {
+                this._stateKeeper.UndoableState = action.StateOnStart;
+            }
+
+            if (!this.IsOperationInProgress)
+            {
+                this._states.Push(action.StateOnStart);
+                this.OnUndoableAction(action.Name);
             }
         }
 
-        protected virtual void OnUndoableAction()
+        protected virtual void OnUndoableAction(string actionName)
         {
             this._undoableStates.Clear();
-            this.UndoableAction?.Invoke(this, new UndoableActionEventArgs(this._actionName));
+            this.UndoableAction?.Invoke(this, new UndoableActionEventArgs(actionName));
             this.StateChanged?.Invoke(this, new UndoableContextChangedEventArgs(true, false));
+        }
+
+        public bool IsOperationInProgress
+        {
+            get
+            {
+                return this._actionsStack.Any();
+            }
         }
 
         public void Undo()
         {
+            if (this.IsOperationInProgress)
+            {
+                throw new InvalidOperationException($"Operation is in progress. Check {nameof(IsOperationInProgress)} property before calling this method");
+            }
+
             if (this._states.Count > 0)
             {
                 this._undoableStates.Push(this._stateKeeper.UndoableState);
@@ -72,6 +89,11 @@ namespace magicmanam.UndoRedo
         }
         public void Redo()
         {
+            if (this.IsOperationInProgress)
+            {
+                throw new InvalidOperationException($"Operation is in progress. Check {nameof(IsOperationInProgress)} property before calling this method");
+            }
+
             if (this._undoableStates.Count > 0)
             {
                 this._states.Push(this._stateKeeper.UndoableState);
