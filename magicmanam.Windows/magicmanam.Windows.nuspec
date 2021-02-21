@@ -2,13 +2,15 @@
 <package>
   <metadata>
     <id>magicmanam.Windows</id>
-    <version>1.0.1</version>
-    <authors>magicmanam</authors>
+    <version>1.0.2</version>
+    <authors>Andrei Muski</authors>
     <owners>magicmanam</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <licenseUrl>https://opensource.org/licenses/MIT</licenseUrl>
+    <projectUrl>https://github.com/magicmanam/windows-man</projectUrl>
     <description>Simple .net wrapper over some native Windows functions</description>
-    <releaseNotes>Initial implementation</releaseNotes>
-    <copyright>Copyright 2018</copyright>
+    <releaseNotes>Adds aliases for most Windows messages</releaseNotes>
+    <copyright>Copyright 2018 magicmanam</copyright>
     <tags>KeyboardEmulator User32Functions NativeWindowsFunctions</tags>
     <dependencies>
     </dependencies>

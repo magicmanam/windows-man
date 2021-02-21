@@ -2,13 +2,15 @@
 <package >
   <metadata>
     <id>magicmanam.Windows.ClipboardViewer</id>
-    <version>1.0.1</version>
-    <authors>magicmanam</authors>
+    <version>1.0.2</version>
+    <authors>Andrei Muski</authors>
     <owners>magicmanam</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <licenseUrl>https://opensource.org/licenses/MIT</licenseUrl>
+    <projectUrl>https://github.com/magicmanam/windows-man</projectUrl>
     <description>Simple wrapper over Windows ClipboardViewer</description>
-    <releaseNotes>Adds dependency on magicmanam.Windows package.</releaseNotes>
-    <copyright>Copyright 2018</copyright>
+    <releaseNotes>Updates the package info</releaseNotes>
+    <copyright>Copyright 2018 magicmanam</copyright>
     <tags>Windows ClipboardViewer</tags>
   </metadata>
 </package>

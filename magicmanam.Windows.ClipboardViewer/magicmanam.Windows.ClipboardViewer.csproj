@@ -42,6 +42,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="magicmanam.Windows.ClipboardViewer.nuspec" />
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
