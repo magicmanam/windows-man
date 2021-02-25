@@ -4,12 +4,9 @@ namespace magicmanam.UndoRedo
 {
     public interface IUndoableContext<T> where T : class
     {
-        event EventHandler<UndoableActionEventArgs> UndoableAction;
-        event EventHandler<UndoableActionEventArgs> UndoAction;
-        event EventHandler<UndoableActionEventArgs> RedoAction;
-        event EventHandler<UndoableContextChangedEventArgs> StateChanged;
+        event EventHandler<UndoableActionEventArgs<T>> UndoableAction;
 
-        UndoableAction<T> StartAction(string action = null);
+        UndoableAction<T> StartAction(string action = "");
 
         void Undo();
         void Redo();

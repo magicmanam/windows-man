@@ -124,9 +124,9 @@ namespace magicmanam.UndoRedo.Tests
             Assert.AreEqual("Outer", this._actionsList.Single());
         }
 
-        private void _UndoableAction(object sender, UndoableActionEventArgs e)
+        private void _UndoableAction(object sender, UndoableActionEventArgs<List<int>> e)
         {
-            this._actionsList.Add(e.Action);
+            this._actionsList.Add(e.Action.Name);
         }
     }
 }

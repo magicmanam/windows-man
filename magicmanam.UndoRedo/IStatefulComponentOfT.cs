@@ -3,7 +3,7 @@
     public interface IStatefulComponent<T>
     {
         /// <summary>
-        /// Copy of undoable component's state.
+        /// Returns deep copy of undoable component's state.
         /// </summary>
         T UndoableState { get; set; }
     }

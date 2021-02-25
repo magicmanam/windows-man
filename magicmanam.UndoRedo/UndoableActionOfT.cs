@@ -4,17 +4,19 @@ namespace magicmanam.UndoRedo
 {
     public class UndoableAction<T> : IDisposable where T : class
     {
-        public event EventHandler<UndoableActionEndEventArgs<T>> ActionEnd;
+        internal event EventHandler<UndoableActionEventArgs<T>> ActionEnd;
 
         internal UndoableAction(string name, T state, bool isNested)
         {
             this.Name = name;
             this.StateOnStart = state;
-            this.ActionId = Guid.NewGuid();
             this.IsNested = isNested;
+            this.ActionId = Guid.NewGuid();
+            this.AtTimeUtc = DateTime.UtcNow;
         }
 
-        internal T StateOnStart { get; set; }
+        internal T StateOnStart { get; private set; }
+        internal T StateOnEnd { get; set; }
 
         public bool IsNested { get; set; }
 
@@ -27,10 +29,11 @@ namespace magicmanam.UndoRedo
         }
 
         public Guid ActionId { get; private set; }
+        public DateTime AtTimeUtc { get; private set; }
 
         public void Dispose()
         {
-            this.ActionEnd?.Invoke(this, new UndoableActionEndEventArgs<T>(this));
+            this.ActionEnd?.Invoke(this, new UndoableActionEventArgs<T>(this));
         }
     }
 }
